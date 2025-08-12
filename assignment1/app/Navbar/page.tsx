@@ -1,15 +1,13 @@
 import React from 'react';
-const AboutPage = () => {
-  console.log("Hello from AboutPage");
+
+const Services = () => {
+  console.log("Hello from Services");
 
   return (
     <div className="flex-grow container mx-auto p-4 sm:p-6 md:p-8">
       <h1 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-800 dark:text-gray-100">
-        About This Project
+        Navbar
       </h1>
-<div className="absolute top-4 left-4 text-sm font-semibold z-20">
-21612428
-</div>
       <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md space-y-6">
 
         {/* personal details */}
@@ -29,12 +27,14 @@ const AboutPage = () => {
           <p className="mb-4 text-gray-600 dark:text-gray-300">
             This video provides a walkthrough of the application's features and how to generate code.
           </p>
+
+          {/* Placeholder for video */}
           <div className="aspect-w-16 aspect-h-9 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center">
-            <p className="text-gray-500 dark:text-gray-400">Video</p>
+            <p className="text-gray-500 dark:text-gray-400">Video placeholder</p>
           </div>
         </div>
       </div>
           </div>
   );
 };
-export default AboutPage;
+export default Services;

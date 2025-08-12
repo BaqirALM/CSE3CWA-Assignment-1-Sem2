@@ -28,6 +28,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <h3><a href="/navbar">Navbar</a></h3>
+        <h3><a href="/">about</a></h3>
+        <h3><a href="/">Home</a></h3>
+         <footer className="w-full border-t border-gray-200 p-4 text-center text-sm text-gray-500">
+        Copyright © 2024 | Baqir Al Musawi | 21612428 |
+        </footer>
       </body>
     </html>
   );
