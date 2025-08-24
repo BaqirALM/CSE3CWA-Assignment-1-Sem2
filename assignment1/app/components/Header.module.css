@@ -1,0 +1,129 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  z-index: 50;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header.light {
+  background-color: #ffffff;
+  color: #000000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header.dark {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.headerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.studentId {
+  position: absolute;
+  top: 0.5rem;
+  left: 0;
+  font-size: 0.875rem;
+  transition: color 0.3s ease;
+}
+
+.studentId.light {
+  color: #666666;
+}
+
+.studentId.dark {
+  color: #cccccc;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.title.light {
+  color: #000000;
+}
+
+.title.dark {
+  color: #ffffff;
+}
+
+.navigation {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.navLink {
+  font-size: 0.875rem;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.navLink.light {
+  color: #666666;
+}
+
+.navLink.dark {
+  color: #cccccc;
+}
+
+.navLink:hover {
+  background-color: #f3f4f6;
+}
+
+.navLink.dark:hover {
+  background-color: #333;
+}
+
+.navLink.active {
+  color: #3b82f6;
+  font-weight: 600;
+  background-color: #dbeafe;
+}
+
+.navLink.dark.active {
+  background-color: #1e3a8a;
+}
+
+.kebabMenuContainer {
+  position: absolute;
+  top: 0.5rem;
+  right: 0;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem;
+  }
+  
+  .navigation {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .studentId {
+    position: static;
+    margin-bottom: 0.5rem;
+  }
+  
+  .kebabMenuContainer {
+    position: static;
+    margin-top: 0.5rem;
+  }
+}

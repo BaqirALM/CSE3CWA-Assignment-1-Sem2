@@ -1,11 +1,9 @@
 "use client";
 
 import React, { useState } from 'react';
-import { useDarkMode } from './components/DarkModeProvider';
 import styles from './page.module.css';
 
-const HomePage = () => {
-  const { isDarkMode } = useDarkMode();
+const TabsPage = () => {
   const [tabs, setTabs] = useState([
     { id: 1, title: 'Section 1', content: '' }
   ]);
@@ -79,16 +77,16 @@ const HomePage = () => {
   };
 
   return (
-    <div className={`${styles.container} ${isDarkMode ? styles.dark : styles.light}`}>
-      <h1 className={`${styles.title} ${isDarkMode ? styles.dark : styles.light}`}>Tabs</h1>
-      <p className={`${styles.instruction} ${isDarkMode ? styles.dark : styles.light}`}>Add/remove tabs and type your content. Click [+] to add, [×] to remove.</p>
+    <div className={styles.container}>
+      <h1 className={styles.title}>Tabs</h1>
+      <p className={styles.instruction}>Add/remove tabs and type your content. Click [+] to add, [×] to remove.</p>
       
       <div className={styles.mainContent}>
         {/* Left - Input */}
-        <div className={`${styles.leftSection} ${isDarkMode ? styles.dark : styles.light}`}>
+        <div className={styles.leftSection}>
           <div className={styles.tabInterface}>
             {tabs.map(tab => (
-              <div key={tab.id} className={`${styles.tabHeader} ${isDarkMode ? styles.dark : styles.light}`}>
+              <div key={tab.id} className={styles.tabHeader}>
                 <span>{tab.title}</span>
                 <button 
                   className={styles.removeBtn}
@@ -101,7 +99,7 @@ const HomePage = () => {
           </div>
           
           <textarea
-            className={`${styles.codeInput} ${isDarkMode ? styles.dark : styles.light}`}
+            className={styles.codeInput}
             value={tabs.find(tab => tab.id === activeTab)?.content || ''}
             onChange={(e) => updateContent(activeTab, e.target.value)}
             placeholder="Type your HTML, JS, or CSS here..."
@@ -113,10 +111,10 @@ const HomePage = () => {
         </div>
 
         {/* Right - Output */}
-        <div className={`${styles.rightSection} ${isDarkMode ? styles.dark : styles.light}`}>
-          <h3 className={`${styles.sectionTitle} ${isDarkMode ? styles.dark : styles.light}`}>Generated HTML5 Output</h3>
+        <div className={styles.rightSection}>
+          <h3>Generated HTML5 Output</h3>
           <textarea
-            className={`${styles.codeOutput} ${isDarkMode ? styles.dark : styles.light}`}
+            className={styles.codeOutput}
             value={output}
             readOnly
             placeholder="Generated code will appear here..."
@@ -134,4 +132,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default TabsPage;
