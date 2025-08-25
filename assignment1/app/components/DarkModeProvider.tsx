@@ -22,10 +22,8 @@ interface DarkModeProviderProps {
 }
 
 export const DarkModeProvider: React.FC<DarkModeProviderProps> = ({ children }) => {
-  // Start with a consistent default state to avoid hydration mismatch
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  // Load theme preference from localStorage on component mount
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
@@ -48,7 +46,6 @@ export const DarkModeProvider: React.FC<DarkModeProviderProps> = ({ children }) 
     }
   };
 
-  // Memoize the context value to prevent unnecessary re-renders
   const value = useMemo(() => ({
     isDarkMode,
     toggleDarkMode

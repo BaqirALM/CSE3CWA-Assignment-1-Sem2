@@ -33,7 +33,7 @@
   font-weight: 500;
 }
 
-.cookieNotice {
+.storageNotice {
   font-size: 0.75rem;
   opacity: 0.8;
   font-style: italic;
@@ -45,7 +45,7 @@
     font-size: 0.8rem;
   }
   
-  .cookieNotice {
+  .storageNotice {
     font-size: 0.7rem;
   }
 }

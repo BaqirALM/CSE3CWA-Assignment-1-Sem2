@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Assignment 1 CSE3CWA
 
-## Getting Started
+## Student Info
+- **Name:** Baqir Al Musawi
+- **Student ID:** 21612428
 
-First, run the development server:
+## What I Built
+A web app using Next.js that lets you create tabs and generate HTML code. It has a header with navigation, dark/light mode, and saves your work using Local Storage.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
+- Create and edit tabs with content
+- Generate HTML code with inline CSS
+- Dark/light theme toggle
+- Navigation between pages
+- Your tabs are saved automatically
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## How to Run
+1. `npm install`
+2. `npm run dev`
+3. Open http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Pages
+- **Tabs** - Main page for creating content
+- **About** - Project info and how to run the web application
+- **Escape Room** - Under development
+- **Coding Races** - Under development  
+- **Court Room** - Under development
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## What Works
+- Header with student ID and navigation
+- Tab creation and editing
+- HTML code generation
+- Theme switching
+- Local Storage for saving tabs
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Still Need to Do
+- Complete About page with video

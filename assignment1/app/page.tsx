@@ -1,8 +1,31 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDarkMode } from './components/DarkModeProvider';
 import styles from './page.module.css';
+
+// Local Storage utility functions
+const saveTabsToStorage = (tabs: any[], activeTab: number) => {
+  if (typeof window !== 'undefined') {
+    localStorage.setItem('tabs', JSON.stringify(tabs));
+    localStorage.setItem('activeTab', activeTab.toString());
+  }
+};
+
+const loadTabsFromStorage = () => {
+  if (typeof window !== 'undefined') {
+    const savedTabs = localStorage.getItem('tabs');
+    const savedActiveTab = localStorage.getItem('activeTab');
+    
+    if (savedTabs) {
+      return {
+        tabs: JSON.parse(savedTabs),
+        activeTab: savedActiveTab ? parseInt(savedActiveTab) : 1
+      };
+    }
+  }
+  return null;
+};
 
 const HomePage = () => {
   const { isDarkMode } = useDarkMode();
@@ -12,22 +35,47 @@ const HomePage = () => {
   const [activeTab, setActiveTab] = useState(1);
   const [output, setOutput] = useState('');
 
+  // Load tabs from Local Storage on component mount
+  useEffect(() => {
+    const savedData = loadTabsFromStorage();
+    if (savedData) {
+      setTabs(savedData.tabs);
+      setActiveTab(savedData.activeTab);
+    }
+  }, []);
+
+  // Save tabs to Local Storage whenever tabs or activeTab changes
+  useEffect(() => {
+    saveTabsToStorage(tabs, activeTab);
+  }, [tabs, activeTab]);
+
   const addTab = () => {
-    const newId = Math.max(...tabs.map(tab => tab.id)) + 1;
-    setTabs([...tabs, { id: newId, title: `Section ${newId}`, content: '' }]);
+    const newId = tabs.length > 0 ? Math.max(...tabs.map(tab => tab.id)) + 1 : 1;
+    const newTabs = [...tabs, { id: newId, title: `Section ${newId}`, content: '' }];
+    setTabs(newTabs);
     setActiveTab(newId);
   };
 
   const removeTab = (id: number) => {
     if (tabs.length > 1) {
       const newTabs = tabs.filter(tab => tab.id !== id);
-      setTabs(newTabs);
-      setActiveTab(newTabs[0].id);
+      
+      // Renumber the remaining tabs in correct order
+      const renumberedTabs = newTabs.map((tab, index) => ({
+        ...tab,
+        id: index + 1,
+        title: `Section ${index + 1}`
+      }));
+      
+      setTabs(renumberedTabs);
+      const newActiveTab = renumberedTabs[0].id;
+      setActiveTab(newActiveTab);
     }
   };
 
   const updateContent = (id: number, content: string) => {
-    setTabs(tabs.map(tab => tab.id === id ? { ...tab, content } : tab));
+    const newTabs = tabs.map(tab => tab.id === id ? { ...tab, content } : tab);
+    setTabs(newTabs);
   };
 
   const generateCode = () => {
@@ -81,18 +129,32 @@ const HomePage = () => {
   return (
     <div className={`${styles.container} ${isDarkMode ? styles.dark : styles.light}`}>
       <h1 className={`${styles.title} ${isDarkMode ? styles.dark : styles.light}`}>Tabs</h1>
-      <p className={`${styles.instruction} ${isDarkMode ? styles.dark : styles.light}`}>Add/remove tabs and type your content. Click [+] to add, [×] to remove.</p>
+      <p className={`${styles.instruction} ${isDarkMode ? styles.dark : styles.light}`}>
+        Add/remove tabs and type your content. Click [+] to add, [×] to remove. 
+        <br />
+        <small style={{ color: '#666', fontStyle: 'italic' }}>
+          Your tabs and content are automatically saved and will be restored when you return to this page.
+        </small>
+      </p>
       
       <div className={styles.mainContent}>
         {/* Left - Input */}
         <div className={`${styles.leftSection} ${isDarkMode ? styles.dark : styles.light}`}>
           <div className={styles.tabInterface}>
             {tabs.map(tab => (
-              <div key={tab.id} className={`${styles.tabHeader} ${isDarkMode ? styles.dark : styles.light}`}>
+              <div 
+                key={tab.id} 
+                className={`${styles.tabHeader} ${isDarkMode ? styles.dark : styles.light} ${activeTab === tab.id ? styles.activeTab : ''}`}
+                onClick={() => setActiveTab(tab.id)}
+                style={{ cursor: 'pointer' }}
+              >
                 <span>{tab.title}</span>
                 <button 
                   className={styles.removeBtn}
-                  onClick={() => removeTab(tab.id)}
+                  onClick={(e) => {
+                    e.stopPropagation(); // Prevent tab switching when clicking remove
+                    removeTab(tab.id);
+                  }}
                   disabled={tabs.length === 1}
                 >×</button>
               </div>
