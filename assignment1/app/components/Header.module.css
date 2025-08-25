@@ -1,129 +1,164 @@
+/* Header Styles - Simple and Direct */
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-  z-index: 50;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.header.light {
-  background-color: #ffffff;
-  color: #000000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100vw !important;
+  height: 140px !important;
+  background-color: white !important;
+  border-bottom: 2px solid #e5e7eb !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  z-index: 9999 !important;
+  font-family: Arial, Helvetica, sans-serif !important;
 }
 
 .header.dark {
-  background-color: #1a1a1a;
-  color: #ffffff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  background-color: #1a1a1a !important;
+  border-bottom-color: #444 !important;
+  color: white !important;
 }
 
 .headerContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 1rem 2rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
 }
 
 .studentId {
-  position: absolute;
-  top: 0.5rem;
-  left: 0;
-  font-size: 0.875rem;
-  transition: color 0.3s ease;
-}
-
-.studentId.light {
-  color: #666666;
+  position: absolute !important;
+  top: 10px !important;
+  left: 20px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #374151 !important;
+  z-index: 10000 !important;
 }
 
 .studentId.dark {
-  color: #cccccc;
+  color: #d1d5db !important;
 }
 
 .title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  text-align: center;
-  transition: color 0.3s ease;
-}
-
-.title.light {
-  color: #000000;
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: center !important;
+  line-height: 1.2 !important;
+  z-index: 10000 !important;
 }
 
 .title.dark {
-  color: #ffffff;
+  color: #f9fafb !important;
 }
 
 .navigation {
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
+  display: flex !important;
+  gap: 32px !important;
+  margin-top: 20px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 10000 !important;
 }
 
 .navLink {
-  font-size: 0.875rem;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-}
-
-.navLink.light {
-  color: #666666;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #374151 !important;
+  text-decoration: none !important;
+  padding: 8px 16px !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
 }
 
 .navLink.dark {
-  color: #cccccc;
+  color: #d1d5db !important;
 }
 
 .navLink:hover {
-  background-color: #f3f4f6;
+  background-color: #f3f4f6 !important;
+  color: #111827 !important;
 }
 
 .navLink.dark:hover {
-  background-color: #333;
+  background-color: #374151 !important;
+  color: #f9fafb !important;
 }
 
 .navLink.active {
-  color: #3b82f6;
-  font-weight: 600;
-  background-color: #dbeafe;
+  background-color: #3b82f6 !important;
+  color: white !important;
 }
 
-.navLink.dark.active {
-  background-color: #1e3a8a;
+.navLink.active:hover {
+  background-color: #2563eb !important;
 }
 
 .kebabMenuContainer {
-  position: absolute;
-  top: 0.5rem;
-  right: 0;
+  position: absolute !important;
+  top: 10px !important;
+  right: 20px !important;
+  z-index: 10000 !important;
 }
 
+.cookieStatus {
+  position: absolute !important;
+  top: 10px !important;
+  right: 100px !important;
+  font-size: 12px !important;
+  color: #666 !important;
+  z-index: 10000 !important;
+}
+
+/* Mobile Responsive */
 @media (max-width: 768px) {
   .header {
-    padding: 1rem;
+    height: 120px !important;
+  }
+  
+  .headerContent {
+    padding: 0.75rem 1rem !important;
+  }
+  
+  .title {
+    font-size: 24px !important;
   }
   
   .navigation {
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
+    gap: 16px !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+  
+  .navLink {
+    font-size: 12px !important;
+    padding: 6px 12px !important;
   }
   
   .studentId {
-    position: static;
-    margin-bottom: 0.5rem;
+    font-size: 12px !important;
+    top: 8px !important;
+    left: 16px !important;
   }
   
   .kebabMenuContainer {
-    position: static;
-    margin-top: 0.5rem;
+    top: 8px !important;
+    right: 16px !important;
+  }
+  
+  .cookieStatus {
+    top: 8px !important;
+    right: 80px !important;
   }
 }

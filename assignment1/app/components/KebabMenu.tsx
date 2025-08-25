@@ -38,18 +38,17 @@ const KebabMenu: React.FC = () => {
         onClick={handleToggleMenu}
         className={`${styles.kebabButton} ${isDarkMode ? styles.dark : ''}`}
         aria-label="Menu"
-        suppressHydrationWarning
       >
-        <div className={styles.kebabLines}>
-          <div className={styles.line}></div>
-          <div className={styles.line}></div>
-          <div className={styles.line}></div>
+        <div className={styles.kebabDots}>
+          <div className={styles.dot} style={{ backgroundColor: 'currentColor' }}></div>
+          <div className={styles.dot} style={{ backgroundColor: 'currentColor' }}></div>
+          <div className={styles.dot} style={{ backgroundColor: 'currentColor' }}></div>
         </div>
       </button>
       
       {/* Dropdown Menu */}
       {showMenu && (
-        <div className={`${styles.dropdownMenu} ${isDarkMode ? styles.dark : styles.light}`} suppressHydrationWarning>
+        <div className={`${styles.dropdownMenu} ${isDarkMode ? styles.dark : styles.light}`}>
           <button
             onClick={handleDarkModeToggle}
             className={`${toggleStyles.toggleButton} ${isDarkMode ? toggleStyles.dark : toggleStyles.light}`}
