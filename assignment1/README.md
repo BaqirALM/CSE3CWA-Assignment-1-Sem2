@@ -32,6 +32,3 @@ A web app using Next.js that lets you create tabs and generate HTML code. It has
 - HTML code generation
 - Theme switching
 - Local Storage for saving tabs
-
-## Still Need to Do
-- Complete About page with video
