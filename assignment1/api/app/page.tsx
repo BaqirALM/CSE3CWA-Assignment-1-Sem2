@@ -18,7 +18,7 @@ const ApiDocumentation: React.FC = () => {
 
   return (
     <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
-      <h1>w7Docker API Documentation</h1>
+      <h1>Assignment 2 Docker API Documentation</h1>
       <p>
         <strong>GET, POST, PATCH, DELETE</strong> requests to{' '}
         <code>{baseUrl}/api</code> with these parameters:
