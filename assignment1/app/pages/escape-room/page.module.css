@@ -7,11 +7,8 @@
 }
 
 .container.light {
-  color: #ffffff; /* Assuming light mode container text should be white based on context */
+  color: #ffffff;
 }
-
-/* Dark mode for container text might need to be defined if default isn't black */
-/* .container.dark { color: #000000; } */
 
 .timerContainer {
   max-width: 800px;
@@ -105,14 +102,9 @@
     padding: 1rem;
   }
 
-  /* Assuming you have a title class somewhere, added rule based on media query context */
-  /* .title {
-     font-size: 2rem;
-  } */
 
   .content {
-    padding: 0 1rem; /* Removed '0' assuming you want padding only left/right */
-                     /* If top/bottom padding needed, use: padding: 1rem; or similar */
+    padding: 0 1rem;
   }
 }
 
@@ -155,4 +147,3 @@
 .submitButton:hover {
   background: #2563eb;
 }
-
