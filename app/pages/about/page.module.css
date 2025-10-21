@@ -1,0 +1,141 @@
+.container {
+  flex-grow: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 2rem;
+  }
+}
+
+.title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #000000;
+}
+
+@media (min-width: 640px) {
+  .title {
+    font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+}
+
+.content {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #000000;
+}
+
+.text {
+  color: #000000;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  margin-bottom: 1rem;
+  color: #000000;
+}
+
+.usageGuide {
+  background-color: #f3f4f6;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid #3b82f6;
+}
+
+.usageTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #000000;
+}
+
+.usageList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.usageList li {
+  padding: 0.25rem 0;
+  color: #000000;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.usageList li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #3b82f6;
+  font-weight: bold;
+}
+
+.videoContainer {
+  aspect-ratio: 16 / 9;
+  background-color: #e5e7eb;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+}
+
+.videoPlaceholder {
+  color: #000000;
+  font-size: 1.125rem;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .content {
+    background-color: #1f2937;
+  }
+  
+  .videoContainer {
+    background-color: #374151;
+  }
+  
+  .usageGuide {
+    background-color: #374151;
+  }
+  
+  .usageTitle,
+  .usageList li {
+    color: #ffffff;
+  }
+}
