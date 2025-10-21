@@ -1,40 +1,79 @@
 .container {
-  width: 100%;
   min-height: 100vh;
   padding: 2rem;
   transition: background-color 0.3s ease, color 0.3s ease;
+  background-size: cover;
+  background-position: center;
 }
 
 .container.light {
-  background-color: #ffffff;
-  color: #000000;
+  color: #ffffff; /* Assuming light mode container text should be white based on context */
 }
 
-.container.dark {
-  background-color: #1a1a1a;
-  color: #ffffff;
-}
+/* Dark mode for container text might need to be defined if default isn't black */
+/* .container.dark { color: #000000; } */
 
-.title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
+.timerContainer {
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+  padding: 1.5rem;
+  border-radius: 8px;
   text-align: center;
-  transition: color 0.3s ease;
+  border: 1px solid;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.title.light {
-  color: #000000;
+.timerContainer.light {
+  background-color: #f8f9fa;
+  border-color: #e5e7eb;
 }
 
-.title.dark {
-  color: #ffffff;
+.timerContainer.dark {
+  background-color: #2d2d2d;
+  border-color: #444;
+}
+
+.timerDisplay {
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+}
+
+.timerControls {
+  margin-top: 1rem;
+}
+
+.button {
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.button:hover {
+  opacity: 0.9;
 }
 
 .content {
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.content.light {
+  background: #ffffff;
+  border-color: #e5e7eb;
+}
+
+.content.dark {
+  background: #2d2d2d;
+  border-color: #444;
 }
 
 .simpleText {
@@ -51,16 +90,69 @@
   color: #cccccc;
 }
 
+.stageTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.stageDescription {
+  margin-bottom: 1rem;
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 1rem;
   }
-  
-  .title {
-    font-size: 2rem;
-  }
-  
+
+  /* Assuming you have a title class somewhere, added rule based on media query context */
+  /* .title {
+     font-size: 2rem;
+  } */
+
   .content {
-    padding: 0 1rem;
+    padding: 0 1rem; /* Removed '0' assuming you want padding only left/right */
+                     /* If top/bottom padding needed, use: padding: 1rem; or similar */
   }
 }
+
+.codeInput {
+  width: 100%;
+  min-height: 200px;
+  padding: 1rem;
+  border: 1px solid;
+  border-radius: 8px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  resize: vertical;
+  margin-bottom: 1rem;
+  transition: border-color 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+}
+
+.codeInput.light {
+  border-color: #d1d5db;
+  color: #000000;
+  background: #ffffff;
+}
+
+.codeInput.dark {
+  border-color: #555;
+  color: #ffffff;
+  background: #1a1a1a;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  background: #2563eb;
+}
+
